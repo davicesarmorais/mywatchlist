@@ -1,0 +1,12 @@
+<nav class="backdrop-blur z-10 mb-20 sticky top-0 shadow-xl font-['Roboto_Mono'] flex justify-center sm:justify-between items-center text-[#DCD7C9] max-w-screen-xl mx-4 xl:mx-auto border-b border-[#DCD7C9] py-4">
+    <a href="/" class="hidden sm:block hover:text-[#f5f3f0] text-4xl md:text-5xl font-['Libre_Barcode_128_Text']">MyWatchlist</a>
+    
+    <!-- TODO: Fazer menu hamburguer -->
+    <div class="flex-wrap-reverse text-sm flex gap-4 md:gap-8 items-center">
+        <a class="hover:text-[#f5f3f0]" href="/">Filmes</a>
+        <a class="hover:text-[#f5f3f0]" href="/">Séries</a>
+        <a class="hover:text-[#f5f3f0]" href="/">Em alta</a>
+        <a class="hover:text-[#f5f3f0]" href="/">Minha lista</a>
+        <a href="/" class="ml-0 sm:ml-8 flex w-12 h-12"><img class='object-cover rounded-full' src="{{ url_for('static', filename='dczin_head.png') }}" alt=""></a>
+    </div>
+</nav>
