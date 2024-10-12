@@ -1,21 +1,41 @@
 <div class="font-['Roboto_Mono'] mx-4 max-w-screen-lg lg:mx-auto">
-    <div class="flex flex-wrap gap-y-4 gap-2 justify-between">
-        <ul class="flex-wrap text-sm text-[#DCD7C9] flex gap-4">
-            <a href=""><li class="duration-100 hover:border-[#DCD7C9] bg-[#3F4E4F] px-4 py-2 bg-[#A27B5C] border border-[#3F4E4F] rounded-full">Quero assistir</li></a>
-            <a href=""><li class="duration-100 hover:bg-[#A27B5C] bg-[#3F4E4F] px-4 py-2 border border-[#A27B5C] rounded-full">Estou assistindo</li></a>
-            <a href=""><li class="duration-100 hover:bg-[#A27B5C] bg-[#3F4E4F] px-4 py-2 border border-[#A27B5C] rounded-full">Já assisti</li></a>
-            <a href=""><li class="duration-100 hover:bg-[#A27B5C] bg-[#3F4E4F] px-4 py-2 border border-[#A27B5C] rounded-full">Todos da lista</li></a>
+    <div class="flex flex-wrap gap-y-2 gap-2 justify-between mb-4">
+        <ul class="flex-wrap text-sm text-[#DCD7C9] flex gap-2">
+            <li class="flex items-center">
+                <input type="radio" id="quero-assistir" name="filtro-status" value="Não assistido" class="hidden peer" required />
+                <label for="quero-assistir" class="duration-100 flex items-center justify-center px-4 py-2 text-[#DCD7C9] bg-[#3F4E4F] border border-[#A27B5C] rounded-full cursor-pointer peer-checked:bg-[#A27B5C] hover:bg-[#4f6263]">
+                    Quero assistir
+                </label>
+            </li>
+            <li class="flex items-center">
+                <input type="radio" id="estou-assistindo" name="filtro-status" value="Em andamento" class="hidden peer" required />
+                <label for="estou-assistindo" class="duration-100 flex items-center justify-center px-4 py-2 text-[#DCD7C9] bg-[#3F4E4F] border border-[#A27B5C] rounded-full cursor-pointer peer-checked:bg-[#A27B5C] hover:bg-[#4f6263]">
+                    Estou assistindo
+                </label>
+            </li>
+            <li class="flex items-center">
+                <input type="radio" id="ja-assisti" name="filtro-status" value="Assistido" class="hidden peer" required />
+                <label for="ja-assisti" class="duration-100 flex items-center justify-center px-4 py-2 text-[#DCD7C9] bg-[#3F4E4F] border border-[#A27B5C] rounded-full cursor-pointer peer-checked:bg-[#A27B5C] hover:bg-[#4f6263]">
+                    Já assisti
+                </label>
+            </li>
+            <li class="flex items-center">
+                <input type="radio" id="todos-da-lista" name="filtro-status" value="Todos" class="hidden peer" required checked />
+                <label for="todos-da-lista" class="duration-100 flex items-center justify-center px-4 py-2 text-[#DCD7C9] bg-[#3F4E4F] border border-[#A27B5C] rounded-full cursor-pointer peer-checked:bg-[#A27B5C] hover:bg-[#4f6263]">
+                    Todos da lista
+                </label>
+            </li>
         </ul>
-        <div class="relative mb-4">
+        <div class="relative">
             <div class="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
                 <svg class="w-5 h-5 text-[#DCD7C9]" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
             </div>
-            <input type="text" id="table-search" class="block p-2 ps-10 text-sm text-[#DCD7C9] border rounded-full bg-[#3F4E4F] placeholder-[#DCD7C9] border-transparent focus:outline-none focus:border-[#A27B5C]" placeholder="Search for items">
+            <input type="text" id="table-search" class="shadow block p-2 ps-10 text-sm text-[#DCD7C9] border rounded-full bg-[#3F4E4F] placeholder-[#DCD7C9] border-transparent focus:outline-none focus:border-[#A27B5C]" placeholder="Search for items">
         </div>
     </div>
-    <div class="relative overflow-x-auto rounded-lg">
+    <div class="relative overflow-x-auto shadow rounded-lg">
         <table class="rounded w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs bg-[#A27B5C] text-[#DCD7C9] uppercase">
+            <thead class="text-sm bg-[#A27B5C] text-[#DCD7C9] uppercase">
                 <tr>
                     <th scope="col" class="p-4">
                     </th>
@@ -34,28 +54,27 @@
                 </tr>
             </thead>
             <tbody>
-                {% for i in data %}
+                {% for item in data %}
                 <tr class="border-b bg-[#3F4E4F] text-[#DCD7C9] border-[#DCD7C9]">
                     <td class="w-4 p-4">
                         <div class="flex items-center">
-                            <!-- MARK: Conferir lógica após implementar banco de dados -->
                             <input id="checkbox-table-search-{{ i }}" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                             <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                         </div>
                     </td>
                     <th scope="row" class="px-6 py-4 font-medium">
-                        {{ data[i]["titulo"] }}
+                        {{ item["titulo"] }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ data[i]["tipo"] }}
+                        {{ item["tipo"] }}
                     </td>
                     <td class="flex flex-wrap gap-2 px-6 py-4">
-                        {% for genero in data[i]["genero"] %}
+                        {% for genero in item["genero"] %}
                         <a class="px-4 py-1 border border-[#DCD7C9] rounded-full" href="">{{ genero }}</a>
                         {% endfor %}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ data[i]["status"] }}
+                        {{ item["status"] }}
                     </td>
                 </tr>
                 {% endfor %}
@@ -63,3 +82,42 @@
         </table>
     </div>
 </div>
+<script>
+    document.querySelectorAll('input[name="filtro-status"]').forEach((radio) => {
+        radio.addEventListener('change', function() {
+            let filtroSelecionado = this.value;
+
+            fetch(`/filtrar?status=${filtroSelecionado}`)
+                .then(response => response.json())
+                .then(data => {
+                    let tbody = document.querySelector('tbody');
+                    tbody.innerHTML = '';
+
+                    data.forEach(item => {
+                        let generosHTML = '';
+                        item.genero.forEach(genero => {
+                            generosHTML += `<a class="px-4 py-1 border border-[#DCD7C9] rounded-full" href="#">${genero}</a>`;
+                        });
+                            
+                        let row = `
+                            <tr class="border-b bg-[#3F4E4F] text-[#DCD7C9] border-[#DCD7C9]">
+                                <td class="w-4 p-4">
+                                    <div class="flex items-center">
+                                        <!-- MARK: Conferir lógica após implementar banco de dados -->
+                                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    </div>
+                                </td>
+                                <th scope="row" class="px-6 py-4 font-medium">${item.titulo}</th>
+                                <td class="px-6 py-4">${item.tipo}</td>
+                                <td class="flex flex-wrap gap-2 px-6 py-4">
+                                    ${generosHTML}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">${item.status}</td>
+                            </tr>
+                        `;
+                    tbody.insertAdjacentHTML('beforeend', row);
+                });
+            });
+        });
+    });
+</script>

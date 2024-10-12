@@ -1,98 +1,100 @@
 {
-    "1": {
-        "titulo": "Nome bem grande de filme para testar a quantidade de caracteres",
-        "tipo": "Série",
-        "genero": ["Comédia"],
-        "status": "Não assitido"
-    },
-    "2": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Romance", "Drama"],
-        "status": "Não assitido"
-    },
-    "3": {
-        "titulo": "Titulo",
-        "tipo": "Filme",
-        "genero": ["Ação"],
-        "status": "Assistido"
-    },
-    "4": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Drama"],
-        "status": "Não assitido"
-    },
-    "13": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Ação", "Aventura", "Suspense"],
-        "status": "Não assitido"
-    },
-    "5": {
-        "titulo": "Titulo",
-        "tipo": "Filme",
-        "genero": ["Ação", "Aventura", "Romance", "Suspense", "Comédia"],
-        "status": "Em andamento"
-    },
-    "6": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Comédia"],
-        "status": "Não assitido"
-    },
-    "7": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Ação"],
-        "status": "Não assitido"
-    },
-    "8": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Terror"],
-        "status": "Não assitido"
-    },
-    "9": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Drama", "Suspense"],
-        "status": "Não assitido"
-    },
-    "10": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Romance"],
-        "status": "Não assitido"
-    },
-    "11": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Comédia"],
-        "status": "Não assitido"
-    },
-    "12": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Terror", "Suspense"],
-        "status": "Não assitido"
-    },
-    "14": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Romance", "Ação"],
-        "status": "Não assitido"
-    },
-    "15": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Ação"],
-        "status": "Não assitido"
-    },
-    "16": {
-        "titulo": "Titulo",
-        "tipo": "Série",
-        "genero": ["Comédia"],
-        "status": "Não assitido"
-    }
+    "data": [
+        {
+            "titulo": "Nome bem grande de filme para testar a quantidade de caracteres",
+            "tipo": "Série",
+            "genero": ["Comédia"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Romance", "Drama"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Filme",
+            "genero": ["Ação"],
+            "status": "Assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Drama"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Ação", "Aventura", "Suspense"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Filme",
+            "genero": ["Ação", "Aventura", "Romance", "Suspense", "Comédia"],
+            "status": "Em andamento"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Comédia"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Ação"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Terror"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Drama", "Suspense"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Romance"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Comédia"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Terror", "Suspense"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Romance", "Ação"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Ação"],
+            "status": "Não assistido"
+        },
+        {
+            "titulo": "Titulo",
+            "tipo": "Série",
+            "genero": ["Comédia"],
+            "status": "Não assistido"
+        }
+    ]
 }
