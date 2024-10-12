@@ -2,25 +2,43 @@
     <div class="flex flex-wrap gap-y-2 gap-2 justify-between mb-4">
         <ul class="flex-wrap text-sm text-[#DCD7C9] flex gap-2">
             <li class="flex items-center">
-                <input type="radio" id="quero-assistir" name="filtro-status" value="Não assistido" class="hidden peer" required />
+                {% if status == 'Não assistido' %}
+                    <input checked onclick="filtrar()" type="radio" id="quero-assistir" name="filtro-status" value="Não assistido" class="hidden peer" required />
+                {% else %}
+                    <input onclick="filtrar()" type="radio" id="quero-assistir" name="filtro-status" value="Não assistido" class="hidden peer" required />
+                {% endif %}
+                
                 <label for="quero-assistir" class="duration-100 flex items-center justify-center px-4 py-2 text-[#DCD7C9] bg-[#3F4E4F] border border-[#A27B5C] rounded-full cursor-pointer peer-checked:bg-[#A27B5C] hover:bg-[#4f6263]">
                     Quero assistir
                 </label>
             </li>
             <li class="flex items-center">
-                <input type="radio" id="estou-assistindo" name="filtro-status" value="Em andamento" class="hidden peer" required />
+                {% if status == 'Em andamento' %}
+                    <input checked onclick="filtrar()" type="radio" id="estou-assistindo" name="filtro-status" value="Em andamento" class="hidden peer" required />
+                {% else %}
+                    <input onclick="filtrar()" type="radio" id="estou-assistindo" name="filtro-status" value="Em andamento" class="hidden peer" required />
+                {% endif %}
                 <label for="estou-assistindo" class="duration-100 flex items-center justify-center px-4 py-2 text-[#DCD7C9] bg-[#3F4E4F] border border-[#A27B5C] rounded-full cursor-pointer peer-checked:bg-[#A27B5C] hover:bg-[#4f6263]">
                     Estou assistindo
                 </label>
             </li>
             <li class="flex items-center">
-                <input type="radio" id="ja-assisti" name="filtro-status" value="Assistido" class="hidden peer" required />
+                {% if status == 'Assistido' %}
+                    <input checked onclick="filtrar()" type="radio" id="ja-assisti" name="filtro-status" value="Assistido" class="hidden peer" required />
+                {% else %}
+                    <input onclick="filtrar()" type="radio" id="ja-assisti" name="filtro-status" value="Assistido" class="hidden peer" required />
+                {% endif %}
+                
                 <label for="ja-assisti" class="duration-100 flex items-center justify-center px-4 py-2 text-[#DCD7C9] bg-[#3F4E4F] border border-[#A27B5C] rounded-full cursor-pointer peer-checked:bg-[#A27B5C] hover:bg-[#4f6263]">
                     Já assisti
                 </label>
             </li>
             <li class="flex items-center">
-                <input type="radio" id="todos-da-lista" name="filtro-status" value="Todos" class="hidden peer" required checked />
+                {% if status == 'Todos' %}
+                    <input checked onclick="filtrar()" type="radio" id="todos-da-lista" name="filtro-status" value="Todos" class="hidden peer" required />
+                {% else %}
+                    <input onclick="filtrar()" type="radio" id="todos-da-lista" name="filtro-status" value="Todos" class="hidden peer" required />
+                {% endif %}
                 <label for="todos-da-lista" class="duration-100 flex items-center justify-center px-4 py-2 text-[#DCD7C9] bg-[#3F4E4F] border border-[#A27B5C] rounded-full cursor-pointer peer-checked:bg-[#A27B5C] hover:bg-[#4f6263]">
                     Todos da lista
                 </label>
@@ -28,9 +46,9 @@
         </ul>
         <div class="relative">
             <div class="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
-                <svg class="w-5 h-5 text-[#DCD7C9]" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+                <svg fill="#DCD7C9" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 45.402 45.402" xml:space="preserve" stroke="#DCD7C9"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141 c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27 c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435 c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z"></path> </g> </g></svg>
             </div>
-            <input type="text" id="table-search" class="shadow block p-2 ps-10 text-sm text-[#DCD7C9] border rounded-full bg-[#3F4E4F] placeholder-[#DCD7C9] border-transparent focus:outline-none focus:border-[#A27B5C]" placeholder="Search for items">
+            <input type="text" id="table-search" class="shadow block p-2 ps-10 text-sm text-[#DCD7C9] border rounded-full bg-[#3F4E4F] placeholder-[#DCD7C9] border-transparent focus:outline-none focus:border-[#A27B5C]" placeholder="Adicionar título">
         </div>
     </div>
     <div class="relative overflow-x-auto shadow rounded-lg">
@@ -83,41 +101,8 @@
     </div>
 </div>
 <script>
-    document.querySelectorAll('input[name="filtro-status"]').forEach((radio) => {
-        radio.addEventListener('change', function() {
-            let filtroSelecionado = this.value;
-
-            fetch(`/filtrar?status=${filtroSelecionado}`)
-                .then(response => response.json())
-                .then(data => {
-                    let tbody = document.querySelector('tbody');
-                    tbody.innerHTML = '';
-
-                    data.forEach(item => {
-                        let generosHTML = '';
-                        item.genero.forEach(genero => {
-                            generosHTML += `<a class="px-4 py-1 border border-[#DCD7C9] rounded-full" href="#">${genero}</a>`;
-                        });
-                            
-                        let row = `
-                            <tr class="border-b bg-[#3F4E4F] text-[#DCD7C9] border-[#DCD7C9]">
-                                <td class="w-4 p-4">
-                                    <div class="flex items-center">
-                                        <!-- MARK: Conferir lógica após implementar banco de dados -->
-                                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    </div>
-                                </td>
-                                <th scope="row" class="px-6 py-4 font-medium">${item.titulo}</th>
-                                <td class="px-6 py-4">${item.tipo}</td>
-                                <td class="flex flex-wrap gap-2 px-6 py-4">
-                                    ${generosHTML}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">${item.status}</td>
-                            </tr>
-                        `;
-                    tbody.insertAdjacentHTML('beforeend', row);
-                });
-            });
-        });
-    });
+    function filtrar() {
+        let status = document.querySelector('input[name="filtro-status"]:checked').value;
+        window.location.href = `?status=${status}`;
+    }
 </script>
