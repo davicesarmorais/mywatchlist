@@ -14,6 +14,7 @@ def home():
     else:
         dados_filtrados = [item for item in data if item['status'] == status]
     
+    return render_template("ideia.html", data=dados_filtrados, status=status)
     return render_template("home.html", data=dados_filtrados, status=status)
 
 
