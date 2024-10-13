@@ -1,0 +1,18 @@
+<ul class="flex flex-col gap-2" id="sortable">
+    
+    {% for item in data %}
+    <ul class="relative flex hover:cursor-grab active:cursor-grabbing p-2 px-8 text-[#A27B5C] bg-[#DCD7C9] rounded">
+        <a href="#" class="absolute left-2"><img src="{{ url_for('static', filename='edit-icon.svg') }}" alt=""></a>
+        <li class="basis-1/3">{{ item["titulo"] }}</li>
+        <li class="basis-1/3 flex items-center"><span class="px-2 border rounded-full border-[#A27B5C]">{{ item["tipo"] }}</span></li>
+        <ul class="basis-1/3 flex items-center flex-wrap gap-1">
+            {% for genero in item["genero"] %}
+            <li class="px-2 border rounded-full border-[#A27B5C]">{{ genero }}</li>
+            {% endfor %}
+        </ul>
+        
+        <span class="absolute right-2"><img src="{{ url_for('static', filename='drag-icon.svg') }}" alt=""></span>
+    </ul>
+    {% endfor %}
+
+</ul>

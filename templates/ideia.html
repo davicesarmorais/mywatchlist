@@ -20,12 +20,12 @@
 <body class="bg-[#2C3639]">
     {% include 'navbar.html' %}
 
-    <div class="shadow text-[#DCD7C9] max-w-screen-xl mx-4 xl:mx-auto bg-[#3F4E4F] rounded p-4">
+    <div class="shadow text-[#DCD7C9] max-w-screen-lg mx-4 lg:mx-auto bg-[#3F4E4F] rounded p-4">
         <!-- Formulario -->
         <div class="flex items-center gap-4 justify-between mb-4 flex-wrap-reverse">
             <form action="/">
                 <div class="flex gap-2">
-                    <input class="placeholder:text-[#DCD7C9] pl-4 rounded-full p-2 bg-[#A27B5C]" type="text" name="titulos" placeholder="Novo Filme">
+                    <input type="text" name="novo_titulo" placeholder="Novo Filme" required class="placeholder:text-[#DCD7C9] pl-4 rounded-full p-2 bg-[#A27B5C]">
                     <button type="submit" class="duration-100 flex justify-center items-center w-10 h-10 rounded-full hover:bg-[#A27B5C] border border-[#A27B5C]">
                         <img src="{{ url_for('static', filename='plus-icon.svg') }}" alt="">
                     </button>
@@ -43,42 +43,8 @@
         <!-- Fim do fomulário -->
 
         <!-- Tabela com os filme/series -->
-        <ul class="flex flex-col gap-2" id="sortable">
-            <ul class="relative flex hover:cursor-grab active:cursor-grabbing p-2 px-8 text-[#A27B5C] bg-[#DCD7C9] rounded">
-                <a href="#" class="absolute left-2"><img src="{{ url_for('static', filename='edit-icon.svg') }}" alt=""></a>
-                <li class="basis-1/3">Lorem</li>
-                <li class="basis-1/3 flex items-center"><span class="px-2 border rounded-full border-[#A27B5C]">Tipo</span></li>
-                <ul class="basis-1/3 flex flex-wrap gap-1">
-                    <li class="px-2 border rounded-full border-[#A27B5C]">Generos</li>
-                    <li class="px-2 border rounded-full border-[#A27B5C]">Generos</li>
-                    <li class="px-2 border rounded-full border-[#A27B5C]">Generos</li>
-                </ul>
-                <span class="absolute right-2"><img src="{{ url_for('static', filename='drag-icon.svg') }}" alt=""></span>
-            </ul>
-            <ul class="relative flex hover:cursor-grab active:cursor-grabbing p-2 px-8 text-[#A27B5C] bg-[#DCD7C9] rounded">
-                <a href="#" class="absolute left-2"><img src="{{ url_for('static', filename='edit-icon.svg') }}" alt=""></a>
-                <li class="basis-1/3">Lorem ipsum dolor sit amet.</li>
-                <li class="basis-1/3 flex items-center"><span class="px-2 border rounded-full border-[#A27B5C]">Tipo</span></li>
-                <ul class="basis-1/3 flex flex-wrap gap-1">
-                    <li class="px-2 border rounded-full border-[#A27B5C]">Generos</li>
-                    <li class="px-2 border rounded-full border-[#A27B5C]">Generos</li>
-                    <li class="px-2 border rounded-full border-[#A27B5C]">Generos</li>
-                </ul>
-                <span class="absolute right-2"><img src="{{ url_for('static', filename='drag-icon.svg') }}" alt=""></span>
-            </ul>
-            <ul class="relative flex hover:cursor-grab active:cursor-grabbing p-2 px-8 text-[#A27B5C] bg-[#DCD7C9] rounded">
-                <a href="#" class="absolute left-2"><img src="{{ url_for('static', filename='edit-icon.svg') }}" alt=""></a>
-                <li class="basis-1/3">Titulo</li>
-                <li class="basis-1/3 flex items-center"><span class="px-2 border rounded-full border-[#A27B5C]">Tipo</span></li>
-                <ul class="basis-1/3 flex flex-wrap gap-1">
-                    <li class="px-2 border rounded-full border-[#A27B5C]">Generos</li>
-                    <li class="px-2 border rounded-full border-[#A27B5C]">Generos</li>
-                    <li class="px-2 border rounded-full border-[#A27B5C]">Generos</li>
-                </ul>
-                <span class="absolute right-2"><img src="{{ url_for('static', filename='drag-icon.svg') }}" alt=""></span>
-            </ul>
-        </ul>
+        {% include 'tabela.html' %}
+        <!-- Fim da tabela -->
     </div>
-    <!-- Fim da tabela -->
 </body>
 </html>
