@@ -1,108 +1,34 @@
-<div class="font-['Roboto_Mono'] mx-4 max-w-screen-lg lg:mx-auto">
-    <div class="flex flex-wrap gap-y-2 gap-2 justify-between mb-4">
-        <ul class="flex-wrap text-sm text-[#DCD7C9] flex gap-2">
-            <li class="flex items-center">
-                {% if status == 'Não assistido' %}
-                    <input checked onclick="filtrar()" type="radio" id="quero-assistir" name="filtro-status" value="Não assistido" class="hidden peer" required />
-                {% else %}
-                    <input onclick="filtrar()" type="radio" id="quero-assistir" name="filtro-status" value="Não assistido" class="hidden peer" required />
-                {% endif %}
-                
-                <label for="quero-assistir" class="duration-100 flex items-center justify-center px-4 py-2 text-[#DCD7C9] bg-[#3F4E4F] border border-[#A27B5C] rounded-full cursor-pointer peer-checked:bg-[#A27B5C] hover:bg-[#4f6263]">
-                    Quero assistir
-                </label>
-            </li>
-            <li class="flex items-center">
-                {% if status == 'Em andamento' %}
-                    <input checked onclick="filtrar()" type="radio" id="estou-assistindo" name="filtro-status" value="Em andamento" class="hidden peer" required />
-                {% else %}
-                    <input onclick="filtrar()" type="radio" id="estou-assistindo" name="filtro-status" value="Em andamento" class="hidden peer" required />
-                {% endif %}
-                <label for="estou-assistindo" class="duration-100 flex items-center justify-center px-4 py-2 text-[#DCD7C9] bg-[#3F4E4F] border border-[#A27B5C] rounded-full cursor-pointer peer-checked:bg-[#A27B5C] hover:bg-[#4f6263]">
-                    Estou assistindo
-                </label>
-            </li>
-            <li class="flex items-center">
-                {% if status == 'Assistido' %}
-                    <input checked onclick="filtrar()" type="radio" id="ja-assisti" name="filtro-status" value="Assistido" class="hidden peer" required />
-                {% else %}
-                    <input onclick="filtrar()" type="radio" id="ja-assisti" name="filtro-status" value="Assistido" class="hidden peer" required />
-                {% endif %}
-                
-                <label for="ja-assisti" class="duration-100 flex items-center justify-center px-4 py-2 text-[#DCD7C9] bg-[#3F4E4F] border border-[#A27B5C] rounded-full cursor-pointer peer-checked:bg-[#A27B5C] hover:bg-[#4f6263]">
-                    Já assisti
-                </label>
-            </li>
-            <li class="flex items-center">
-                {% if status == 'Todos' %}
-                    <input checked onclick="filtrar()" type="radio" id="todos-da-lista" name="filtro-status" value="Todos" class="hidden peer" required />
-                {% else %}
-                    <input onclick="filtrar()" type="radio" id="todos-da-lista" name="filtro-status" value="Todos" class="hidden peer" required />
-                {% endif %}
-                <label for="todos-da-lista" class="duration-100 flex items-center justify-center px-4 py-2 text-[#DCD7C9] bg-[#3F4E4F] border border-[#A27B5C] rounded-full cursor-pointer peer-checked:bg-[#A27B5C] hover:bg-[#4f6263]">
-                    Todos da lista
-                </label>
-            </li>
-        </ul>
-        <div class="relative">
-            <div class="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
-                <svg fill="#DCD7C9" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 45.402 45.402" xml:space="preserve" stroke="#DCD7C9"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141 c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27 c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435 c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z"></path> </g> </g></svg>
-            </div>
-            <input type="text" id="table-search" class="shadow block p-2 ps-10 text-sm text-[#DCD7C9] border rounded-full bg-[#3F4E4F] placeholder-[#DCD7C9] border-transparent focus:outline-none focus:border-[#A27B5C]" placeholder="Adicionar título">
+<ul class="flex flex-col gap-2" id="sortable">
+    
+    {% for item in data %}
+    <ul class="relative flex hover:cursor-grab active:cursor-grabbing gap-8 p-2 px-12 text-[#A27B5C] bg-[#DCD7C9] rounded">
+        
+        <div class="self-center absolute left-2 inline-flex items-center">
+            <label class="flex items-center cursor-pointer relative">
+                <input type="checkbox" class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-[#A27B5C] border-2 checked:bg-[#A27B5C]" id="check" />
+                <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" stroke="currentColor" stroke-width="1">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                </span>
+            </label>
+        </div> 
+
+        <div class="basis-1/2 sm:basis-1/3 flex items-center relative">
+            <a href="#" class="pr-8 w-full">{{ item["titulo"] }}</a>
+            <a href="#" class="absolute right-0"><img src="{{ url_for('static', filename='edit-icon.svg') }}" alt=""></a>
         </div>
-    </div>
-    <div class="relative overflow-x-auto shadow rounded-lg">
-        <table class="rounded w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-sm bg-[#A27B5C] text-[#DCD7C9] uppercase">
-                <tr>
-                    <th scope="col" class="p-4">
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Titulo
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Tipo
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Genero
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Status
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in data %}
-                <tr class="border-b bg-[#3F4E4F] text-[#DCD7C9] border-[#DCD7C9]">
-                    <td class="w-4 p-4">
-                        <div class="flex items-center">
-                            <input id="checkbox-table-search-{{ i }}" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                        </div>
-                    </td>
-                    <th scope="row" class="px-6 py-4 font-medium">
-                        {{ item["titulo"] }}
-                    </th>
-                    <td class="px-6 py-4">
-                        {{ item["tipo"] }}
-                    </td>
-                    <td class="flex flex-wrap gap-2 px-6 py-4">
-                        {% for genero in item["genero"] %}
-                        <a class="px-4 py-1 border border-[#DCD7C9] rounded-full" href="">{{ genero }}</a>
-                        {% endfor %}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item["status"] }}
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</div>
-<script>
-    function filtrar() {
-        let status = document.querySelector('input[name="filtro-status"]:checked').value;
-        window.location.href = `?status=${status}`;
-    }
-</script>
+        
+        <li class="basis-1/2 sm:basis-1/3 flex items-center"><span class="px-2 border rounded-full border-[#A27B5C]">{{ item["tipo"] }}</span></li>
+        
+        <ul class="sm:basis-1/3 hidden sm:flex items-center flex-wrap gap-1">
+            {% for genero in item["genero"] %}
+            <li class="px-2 border rounded-full border-[#A27B5C]">{{ genero }}</li>
+            {% endfor %}
+        </ul>
+        
+        <span class="absolute right-2"><img src="{{ url_for('static', filename='drag-icon.svg') }}" alt=""></span>
+    </ul>
+    {% endfor %}
+
+</ul>

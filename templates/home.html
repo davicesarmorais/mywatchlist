@@ -8,11 +8,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script> 
-    <title>Home</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+    <script>
+        $( function() {
+        $( "#sortable" ).sortable();
+        } );
+    </script>
+    <title>MyWatchlist - Home</title>
 </head>
 <body class="bg-[#2C3639]">
     {% include 'navbar.html' %}
-    {% include 'table.html' %}
+
+    <div class="shadow text-[#DCD7C9] max-w-screen-lg mx-4 lg:mx-auto bg-[#3F4E4F] rounded p-4">
+        <div class="flex items-center gap-4 justify-between mb-4 flex-wrap-reverse">
+            <form action="/add" method="POST">
+                <div class="flex gap-2">
+                    <input type="text" name="novo_titulo" placeholder="Novo título" required class="placeholder:text-[#DCD7C9] pl-4 rounded-full p-2 bg-[#A27B5C]">
+                    <button type="submit" class="duration-100 flex justify-center items-center w-10 h-10 rounded-full hover:bg-[#A27B5C] border border-[#A27B5C]">
+                        <img src="{{ url_for('static', filename='plus-icon.svg') }}" alt="">
+                    </button>
+                </div>
+            </form>
+            <form action="/" method="POST">
+                <label for="filtrar" class="mr-4 text-[#DCD7C9]">Filtrar por...</label>
+                <select class="bg-[#A27B5C] p-2 rounded" aria-placeholder="Selecione" name="filtrar" id="">
+                    <option value="Assistido">Assistido</option>
+                    <option value="Não assistido">Não assistido</option>
+                    <option selected value="Todos">Todos</option>
+                </select>
+            </form>
+        </div>
+        {% include 'table.html' %}
+    </div>
+
     {% include 'footer.html' %}
 </body>
 </html>
